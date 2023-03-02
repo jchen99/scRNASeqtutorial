@@ -12,7 +12,10 @@ install.packages("hdf5r")
 # load libraries
 library(Seurat)
 library(tidyverse)
+<<<<<<< HEAD
 library(ggplot2)
+=======
+>>>>>>> 431fd86e6f0246545996f57366eff9995cf2d31e
 
 # Load the NSCLC dataset
 nsclc.sparse.m <- Read10X_h5(filename = 'L:/Lab-Wiestner/Jonathan/scDNA Sequencing/Tutorials/data/40k_NSCLC_DTC_3p_HT_nextgem_Multiplex_count_raw_feature_bc_matrix.h5')
@@ -74,6 +77,7 @@ nsclc.seurat.obj <- RunPCA(nsclc.seurat.obj, features = VariableFeatures(object 
 
 # visualize PCA results
 print(nsclc.seurat.obj[["pca"]], dims = 1:5, nfeatures = 5)
+<<<<<<< HEAD
 
 VizDimLoadings(nsclc.seurat.obj, dims = 1:2, reduction = "pca")
 DimPlot(nsclc.seurat.obj, reduction = "pca")
@@ -87,6 +91,11 @@ DimHeatmap(nsclc.seurat.obj, dims = 1, cells = 500, balanced = TRUE)
 # nsclc.seurat.obj <- ScoreJackStraw(nsclc.seurat.obj, dims = 1:20)
 # JackStrawPlot(nsclc.seurat.obj, dims = 1:15)
 
+=======
+DimHeatmap(nsclc.seurat.obj, dims = 1, cells = 500, balanced = TRUE)
+
+
+>>>>>>> 431fd86e6f0246545996f57366eff9995cf2d31e
 # determine dimensionality of the data
 ElbowPlot(nsclc.seurat.obj)
 
@@ -98,7 +107,11 @@ nsclc.seurat.obj <- FindNeighbors(nsclc.seurat.obj, dims = 1:15)
 nsclc.seurat.obj <- FindClusters(nsclc.seurat.obj, resolution = c(0.1,0.3, 0.5, 0.7, 1))
 View(nsclc.seurat.obj@meta.data)
 
+<<<<<<< HEAD
 DimPlot(nsclc.seurat.obj, group.by = "RNA_snn_res.0.1", label = TRUE)
+=======
+DimPlot(nsclc.seurat.obj, group.by = "RNA_snn_res.0.5", label = TRUE)
+>>>>>>> 431fd86e6f0246545996f57366eff9995cf2d31e
 
 # setting identity of clusters
 Idents(nsclc.seurat.obj)
